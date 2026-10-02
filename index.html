@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Backup Utility</title>
+<style>
+  :root { --bg:#ffffff; --fg:#1a1a1a; --muted:#5a5a5a; --line:#e3e3e3; --accent:#2b5fd9; }
+  :root:not([data-theme="light"]) { }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#15171a; --fg:#e8e8e8; --muted:#a0a4ab; --line:#2c2f34; --accent:#7aa2f7; }
+  }
+  :root[data-theme="dark"] { --bg:#15171a; --fg:#e8e8e8; --muted:#a0a4ab; --line:#2c2f34; --accent:#7aa2f7; }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); margin:0; padding:48px 16px;
+         font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; margin: 0 0 .4em; letter-spacing: -0.01em; }
+  h2 { font-size: 1.05rem; margin: 2em 0 .5em; }
+  p { margin: 0 0 1em; }
+  ul { padding-left: 1.2em; margin: 0 0 1em; }
+  li { margin: .35em 0; }
+  .lede { color: var(--muted); }
+  footer { margin-top: 3em; padding-top: 1.2em; border-top: 1px solid var(--line);
+           color: var(--muted); font-size: .9rem; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Personal Backup Utility</h1>
+  <p class="lede">A private, single-user application that copies its owner's own backup files to
+  the owner's own Google Drive.</p>
+
+  <h2>What it does</h2>
+  <p>Once a day, the application packages a small set of files from its owner's computer into a
+  single archive, encrypts that archive on the computer, and uploads it to the owner's Google
+  Drive. It is run by one person, for their own files. There are no other users, and there is no
+  service offered to anyone else.</p>
+
+  <h2>What it can see</h2>
+  <p>The application requests only the <code>drive.file</code> permission. That scope limits it to
+  the files it creates itself — it cannot open, read or list anything else in the Drive account.</p>
+
+  <h2>Encryption</h2>
+  <p>Archives are encrypted before they leave the computer, using
+  <a href="https://rclone.org/crypt/">rclone's crypt layer</a>. Both the file contents and the file
+  names are encrypted. Nothing readable is stored remotely.</p>
+
+  <h2>Privacy</h2>
+  <p>See the <a href="privacy.html">privacy policy</a>.</p>
+
+  <footer>This page exists to satisfy Google's OAuth configuration requirements for a personal
+  application. It is not a product and nothing is offered for sale.</footer>
+</main>
+</body>
+</html>
